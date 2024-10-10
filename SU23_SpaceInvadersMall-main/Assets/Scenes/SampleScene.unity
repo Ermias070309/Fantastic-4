@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,7 +137,7 @@ GameObject:
   - component: {fileID: 501065410}
   m_Layer: 6
   m_Name: Bunker (2)
-  m_TagString: Untagged
+  m_TagString: Bunker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -371,7 +372,7 @@ GameObject:
   - component: {fileID: 709173443}
   m_Layer: 0
   m_Name: Bunker (3)
-  m_TagString: Untagged
+  m_TagString: Bunker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -531,8 +532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67dd7796d16bce94b895d73c1ef771e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  cycleTime: 5
 --- !u!61 &864216850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -754,7 +753,7 @@ GameObject:
   - component: {fileID: 1576728952}
   m_Layer: 6
   m_Name: Bunker (1)
-  m_TagString: Untagged
+  m_TagString: Bunker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1132,7 +1131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserPrefab: {fileID: 598745509683378831, guid: 98a41f42675e8c844a294a52de7b711f, type: 3}
-  speed: 5
 --- !u!1 &1862395652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,7 +1145,7 @@ GameObject:
   - component: {fileID: 1862395656}
   m_Layer: 6
   m_Name: Bunker
-  m_TagString: Untagged
+  m_TagString: Bunker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
