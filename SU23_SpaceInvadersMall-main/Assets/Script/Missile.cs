@@ -5,8 +5,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
+
 public class Missile : Projectile
 {
+    
     private void Awake()
     {
         direction = Vector3.down;
@@ -19,7 +21,10 @@ public class Missile : Projectile
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject); //så fort den krockar med något så ska den försvinna.
+        Destroy(gameObject); //så fort den krockar med något så ska den försvinna. 
     }
+
+    
+   
    
 }

@@ -7,6 +7,8 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Laser : Projectile
 {
+    [SerializeField] private ParticleSystem damageParticals;
+    private ParticleSystem damageParticalsInstance;
     private void Awake()
     {
         direction = Vector3.up;
@@ -29,6 +31,15 @@ public class Laser : Projectile
         if(bunker == null) //Om det inte är en bunker vi träffat så ska skottet försvinna.
         {
             Destroy(gameObject);
+
+            SpawnDamgeParticals(); //Spawna in particlar 
+
         }
+
+
+    }
+    private void SpawnDamgeParticals()
+    {
+        damageParticalsInstance = Instantiate(damageParticals, transform.position, Quaternion.identity);
     }
 }
