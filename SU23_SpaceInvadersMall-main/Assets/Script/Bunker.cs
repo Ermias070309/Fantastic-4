@@ -26,11 +26,11 @@ public class Bunker : MonoBehaviour
             Debug.Log("red:" + oldColor.r);
             Debug.Log("green:" + oldColor.g);
 
-            Color newColor = new Color(oldColor.r +(nrOfHits*0.1f), oldColor.g + (nrOfHits * 0.1f), oldColor.b + (nrOfHits * 0.1f));
+            Color newColor = new Color(oldColor.r +(nrOfHits*0.025f), oldColor.g + (nrOfHits * 0.025f), oldColor.b + (nrOfHits * 0.025f));
             
             spRend.color = newColor;
             
-            if (nrOfHits == 4)
+            if (nrOfHits == 8)
             {
                 gameObject.SetActive(false);
             }

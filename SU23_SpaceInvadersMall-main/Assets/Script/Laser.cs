@@ -22,6 +22,11 @@ public class Laser : Projectile
     private void OnTriggerEnter2D(Collider2D collision)
     {
         CheckCollision(collision);
+
+        if (collision.CompareTag("Bunker"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     void CheckCollision(Collider2D collision)
