@@ -35,9 +35,12 @@ public class Laser : Projectile
 
         if(bunker == null) //Om det inte är en bunker vi träffat så ska skottet försvinna.
         {
+            
+            SpawnDamgeParticals(); //Spawna in particlar 
+            
             Destroy(gameObject);
 
-            SpawnDamgeParticals(); //Spawna in particlar 
+          
 
         }
 
