@@ -35,8 +35,9 @@ public class Laser : Projectile
     void CheckCollision(Collider2D collision)
     {
         Bunker bunker = collision.gameObject.GetComponent<Bunker>();
+        Missile missile = collision.gameObject.GetComponent<Missile>();
 
-        if(bunker == null) //Om det inte är en bunker vi träffat så ska skottet försvinna.
+        if (bunker || missile == null) //Om det inte är en bunker vi träffat så ska skottet försvinna.
         {
             
             SpawnDamgeParticals(); //Spawna in particlar 
@@ -47,7 +48,10 @@ public class Laser : Projectile
           
 
         }
-
+        if (collision.tag == "Missile")
+        {
+            Destroy(collision.gameObject);
+        }
 
     }
     private void SpawnDamgeParticals()

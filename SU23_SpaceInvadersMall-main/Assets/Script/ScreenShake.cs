@@ -22,6 +22,7 @@ public class ScreenShake : MonoBehaviour
         {
             print("shake shake");
             Vector2 offset = Random.insideUnitCircle * amplitude;
+            
 
             transform.position = new Vector3(offset.x, offset.y, originalPosition.z);
             elapsedTime += Time.deltaTime;
