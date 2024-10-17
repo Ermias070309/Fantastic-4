@@ -7,11 +7,14 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Laser : Projectile
 {
+    ScreenShake Shake;
+
     [SerializeField] private ParticleSystem damageParticals;
     private ParticleSystem damageParticalsInstance;
     private void Awake()
     {
         direction = Vector3.up;
+        Shake = FindAnyObjectByType<ScreenShake>(); 
     }
 
     void Update()
@@ -37,6 +40,7 @@ public class Laser : Projectile
         {
             
             SpawnDamgeParticals(); //Spawna in particlar 
+            Shake.startshake();
             
             Destroy(gameObject);
 
