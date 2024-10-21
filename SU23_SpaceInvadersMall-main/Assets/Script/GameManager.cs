@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
 
     private void SetLives(int lives)
     {
-       
+        
     }
 
     public void OnPlayerKilled(Player player)
@@ -114,7 +114,9 @@ public class GameManager : MonoBehaviour
 
         if (invaders.GetInvaderCount() == 0)
         {
-            NewRound();
+           // NewRound(); 
+           
+           
         }
     }
 

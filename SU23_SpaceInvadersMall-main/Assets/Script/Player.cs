@@ -27,6 +27,15 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void GetHealth(int amount)
+    {
+        currentHealth = amount;
+
+        if (currentHealth > 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
 
 

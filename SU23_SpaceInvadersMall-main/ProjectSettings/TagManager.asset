@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bunker
+  - Missile
+  - Laser
   layers:
   - Default
   - TransparentFX

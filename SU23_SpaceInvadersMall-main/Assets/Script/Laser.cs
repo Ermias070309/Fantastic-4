@@ -37,7 +37,7 @@ public class Laser : Projectile
         Bunker bunker = collision.gameObject.GetComponent<Bunker>();
         Missile missile = collision.gameObject.GetComponent<Missile>();
 
-        if (bunker || missile == null) //Om det inte är en bunker vi träffat så ska skottet försvinna.
+        if ( missile == null) //Om det inte är en bunker vi träffat så ska skottet försvinna.
         {
             
             SpawnDamgeParticals(); //Spawna in particlar 

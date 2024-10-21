@@ -302,7 +302,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0.25416994, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 709173441}
   - component: {fileID: 709173440}
   - component: {fileID: 709173443}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bunker (3)
   m_TagString: Bunker
   m_Icon: {fileID: 0}
@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 864216852}
   - component: {fileID: 864216851}
   - component: {fileID: 864216850}
-  - component: {fileID: 864216849}
+  - component: {fileID: 864216853}
   m_Layer: 0
   m_Name: MysteryShip
   m_TagString: Untagged
@@ -520,18 +520,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &864216849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 864216848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67dd7796d16bce94b895d73c1ef771e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &864216850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -644,6 +632,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &864216853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864216848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0eeda450d49a894a8ad7990379b194b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &918047701
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,10 +675,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab:
   - {fileID: 4956728997434895223, guid: aacc82b1d1e5f304ab5aedaedc4b6e91, type: 3}
-  - {fileID: 4956728997434895223, guid: aacc82b1d1e5f304ab5aedaedc4b6e91, type: 3}
-  - {fileID: 3032509507825182586, guid: 76202e31c459f5647999bf41eaf41c1a, type: 3}
-  - {fileID: 3032509507825182586, guid: 76202e31c459f5647999bf41eaf41c1a, type: 3}
-  - {fileID: 4902786436227041911, guid: 12d2a603d6052c740b9e34f8d28d5e47, type: 3}
   missilePrefab: {fileID: 375123409089435558, guid: 18ca01e8917cd6b4b9a78f80ad42859e, type: 3}
 --- !u!4 &918047703
 Transform:

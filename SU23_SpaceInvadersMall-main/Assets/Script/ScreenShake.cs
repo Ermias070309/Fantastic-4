@@ -20,7 +20,7 @@ public class ScreenShake : MonoBehaviour
 
         while (elapsedTime < shakeTime)
         {
-            print("shake shake");
+            
             Vector2 offset = Random.insideUnitCircle * amplitude;
             
 
