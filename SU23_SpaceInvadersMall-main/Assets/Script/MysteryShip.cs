@@ -55,8 +55,20 @@ public class MysteryShip : MonoBehaviour
             }
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Laser")
+        {
+            var healthComponnent = collision.GetComponent<Player>();
+            if (healthComponnent != null)
+            {
+                healthComponnent.GetHealth(1);
+            }
+            Destroy(gameObject);
+        }
+    }
 
-  
+
     //flyttar den till en plast precis utanför scenen.
     void SetInvisible()
     {
@@ -81,12 +93,6 @@ public class MysteryShip : MonoBehaviour
         isVisible = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Laser"))
-        {
-            SetInvisible();
-            GameManager.Instance.OnMysteryShipKilled(this);
-        }
-    }
+    
+    
 }
