@@ -30,6 +30,11 @@ public class Laser : Projectile
         {
             Destroy(gameObject);
         }
+        var healthComponnent = collision.GetComponent<BossControl>();
+        if (healthComponnent != null)
+        {
+            healthComponnent.TakeDamageBoss(1);
+        }
     }
 
     void CheckCollision(Collider2D collision)
