@@ -21,10 +21,23 @@ public class Missile : Projectile
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject); //s� fort den krockar med n�got s� ska den f�rsvinna.
+        if (collision.tag == "Bunker")
+        {
+            Destroy(gameObject);
+        }
 
-        
+        if (collision.tag == "Player")
+        {
+            Destroy(gameObject);
+
+            var healthComponnent = collision.GetComponent<Player>();
+            if (healthComponnent != null)
+            {
+                healthComponnent.TakeDamage(1);
+            }
+        }
+
     }
-    
+
 
 }

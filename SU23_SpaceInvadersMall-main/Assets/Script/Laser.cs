@@ -7,11 +7,14 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Laser : Projectile
 {
+    ScreenShake Shake;
+
     [SerializeField] private ParticleSystem damageParticals;
     private ParticleSystem damageParticalsInstance;
     private void Awake()
     {
         direction = Vector3.up;
+        Shake = FindAnyObjectByType<ScreenShake>(); 
     }
 
     void Update()
@@ -32,15 +35,23 @@ public class Laser : Projectile
     void CheckCollision(Collider2D collision)
     {
         Bunker bunker = collision.gameObject.GetComponent<Bunker>();
+        Missile missile = collision.gameObject.GetComponent<Missile>();
 
-        if(bunker == null) //Om det inte är en bunker vi träffat så ska skottet försvinna.
+        if (bunker || missile == null) //Om det inte är en bunker vi träffat så ska skottet försvinna.
         {
+            
+            SpawnDamgeParticals(); //Spawna in particlar 
+            Shake.startshake();
+            
             Destroy(gameObject);
 
-            SpawnDamgeParticals(); //Spawna in particlar 
+          
 
         }
-
+        if (collision.tag == "Missile")
+        {
+            Destroy(collision.gameObject);
+        }
 
     }
     private void SpawnDamgeParticals()
