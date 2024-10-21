@@ -5,11 +5,11 @@ using UnityEngine;
 public class BossControll : MonoBehaviour
 {
 
-    Missile missilePrefab; 
+    [SerializeField] Missile missilePrefab; 
     // Start is called before the first frame update
     void Start()
     {
-        
+        InvokeRepeating(nameof(FireMissile), 1f, 1f); 
     }
 
     // Update is called once per frame
