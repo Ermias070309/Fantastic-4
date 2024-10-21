@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     private Invaders invaders;
     private MysteryShip mysteryShip;
     private Bunker[] bunkers;
+    [SerializeField]
+    private GameObject boss;
+    
 
     //Används ej just nu, men ni kan använda de senare
     public int score { get; private set; } = 0;
@@ -114,8 +117,8 @@ public class GameManager : MonoBehaviour
 
         if (invaders.GetInvaderCount() == 0)
         {
-           // NewRound(); 
-           
+            // NewRound(); 
+            Instantiate(boss, new Vector3(0, 13, 0), Quaternion.identity); 
            
         }
     }
