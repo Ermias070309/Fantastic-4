@@ -8,6 +8,8 @@ public class BossControll : MonoBehaviour
     [SerializeField] Missile missilePrefab;
     public int maxHealthBoss = 10;
     public int currentHealthBoss;
+    [SerializeField] private ParticleSystem damageParticals;
+    private ParticleSystem damageParticalsInstance;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class BossControll : MonoBehaviour
 
         if (currentHealthBoss <= 0)
         {
+            SpawnDamgeParticals();
             Destroy(gameObject);
         }
     }
@@ -40,5 +43,9 @@ public class BossControll : MonoBehaviour
             Instantiate(missilePrefab, new Vector3(x, y), Quaternion.identity); 
 
         }
+    }
+    private void SpawnDamgeParticals()
+    {
+        damageParticalsInstance = Instantiate(damageParticals, transform.position, Quaternion.identity);
     }
 }

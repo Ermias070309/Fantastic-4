@@ -144,5 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missilePrefab: {fileID: 375123409089435558, guid: 18ca01e8917cd6b4b9a78f80ad42859e, type: 3}
-  maxHealth: 2
-  currentHealth: 0
+  maxHealthBoss: 4
+  currentHealthBoss: 0
+  damageParticals: {fileID: 4167568358288970750, guid: 797fbd2051b837548b3d34506d41b35c, type: 3}
