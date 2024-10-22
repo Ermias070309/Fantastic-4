@@ -5,11 +5,24 @@ using UnityEngine;
 public class BossControll : MonoBehaviour
 {
 
-    [SerializeField] Missile missilePrefab; 
+    [SerializeField] Missile missilePrefab;
+    public int maxHealthBoss = 10;
+    public int currentHealthBoss;
     // Start is called before the first frame update
     void Start()
     {
+        currentHealthBoss = maxHealthBoss;
         InvokeRepeating(nameof(FireMissile), 1f, 2.6f); 
+    }
+
+    public void TakeDamageBoss(int amount)
+    {
+        currentHealthBoss -= amount;
+
+        if (currentHealthBoss <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame

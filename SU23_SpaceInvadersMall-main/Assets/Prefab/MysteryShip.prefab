@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6337279883796740114}
   m_Layer: 0
   m_Name: MysteryShip
-  m_TagString: Untagged
+  m_TagString: MysteryShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,3 +144,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missilePrefab: {fileID: 375123409089435558, guid: 18ca01e8917cd6b4b9a78f80ad42859e, type: 3}
+  maxHealth: 2
+  currentHealth: 0

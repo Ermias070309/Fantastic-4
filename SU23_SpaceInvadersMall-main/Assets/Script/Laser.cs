@@ -31,10 +31,15 @@ public class Laser : Projectile
         {
             Destroy(gameObject);
         }
-        var healthComponnent = collision.GetComponent<BossControl>();
-        if (healthComponnent != null)
+        if (collision.tag == "MysteryShip")
         {
-            healthComponnent.TakeDamageBoss(1);
+            Destroy(gameObject);
+
+            var healthComponnent = collision.GetComponent<BossControll>();
+            if (healthComponnent != null)
+            {
+                healthComponnent.TakeDamageBoss(1);
+            }
         }
     }
 
