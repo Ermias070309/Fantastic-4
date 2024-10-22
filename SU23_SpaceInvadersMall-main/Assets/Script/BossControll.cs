@@ -9,7 +9,7 @@ public class BossControll : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating(nameof(FireMissile), 1f, 1f); 
+        InvokeRepeating(nameof(FireMissile), 1f, 2.6f); 
     }
 
     // Update is called once per frame
@@ -20,10 +20,10 @@ public class BossControll : MonoBehaviour
 
     private void FireMissile()
     {
-        for (int i = 0; i<10; i++)
+        for (int i = 0; i<30; i++)
         {
             float y = transform.position.y;
-            float x = transform.position.x - 5 + i;
+            float x = transform.position.x - 15 + i;
             Instantiate(missilePrefab, new Vector3(x, y), Quaternion.identity); 
 
         }
