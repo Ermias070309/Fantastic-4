@@ -9,9 +9,10 @@ public class Player : MonoBehaviour
 {
     public Laser laserPrefab;
     Laser laser;
-    float speed = 5f;
+    float speed = 20f;
     public int maxHealth = 3;
     public int currentHealth;
+    float wait = 0; 
 
     private void Start()
     {
@@ -55,9 +56,10 @@ public class Player : MonoBehaviour
 
         transform.position = position;
 
-        if (Input.GetKeyDown(KeyCode.Space) && laser == null)
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time - wait >= 1.5)
         {
             laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+            wait = Time.time; 
         }
     }
 

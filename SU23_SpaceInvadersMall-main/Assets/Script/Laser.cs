@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 
@@ -44,6 +45,7 @@ public class Laser : Projectile
             Shake.startshake();
             
             Destroy(gameObject);
+            Thread.Sleep(80); 
 
           
 

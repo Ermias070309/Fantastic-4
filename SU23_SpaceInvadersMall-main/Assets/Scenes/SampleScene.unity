@@ -985,7 +985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserPrefab: {fileID: 598745509683378831, guid: 98a41f42675e8c844a294a52de7b711f, type: 3}
-  maxHealth: 3
+  maxHealth: 100
   currentHealth: 0
 --- !u!1 &1862395652
 GameObject:
