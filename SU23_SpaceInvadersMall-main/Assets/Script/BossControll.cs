@@ -7,8 +7,11 @@ public class BossControll : MonoBehaviour
 {
 
     [SerializeField] Missile missilePrefab;
+    float speed = 10f; 
     public int maxHealthBoss = 6;
     public int currentHealthBoss;
+    int direction = -1;
+    
     [SerializeField] private ParticleSystem damageParticals;
     private ParticleSystem damageParticalsInstance;
     // Start is called before the first frame update
@@ -21,10 +24,7 @@ public class BossControll : MonoBehaviour
     public void TakeDamageBoss(int amount)
     {
         currentHealthBoss -= amount;
-        if (currentHealthBoss <= 5)
-        {
-            
-        }
+        
         if (currentHealthBoss <= 0)
         {
             SpawnDamgeParticals();
@@ -36,23 +36,40 @@ public class BossControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            if(transform.position.x >= 15)
-            {
-                transform.Translate(Vector3.left * Time.deltaTime); 
-            }
-            if (transform.position.x <= -15)
-            {
-                transform.Translate(Vector3.right * Time.deltaTime);
-            }
+        if(currentHealthBoss <= 5)
+        {
+            moveShip();
+        }
+        if (transform.position.x <= -15)
+        {
+            direction *= -1; //Ändrar riktningen
+        }
+        if (transform.position.x >= 15)
+        {
+            direction *= -1; //Ändrar riktningen
+        }
     }
-    
+
+    private void moveShip()
+    {
+        if (direction == 1)
+        {
+            //rör sig åt höger
+            transform.position += speed * Time.deltaTime * Vector3.right;
+        }
+        else
+        {
+            //rör sig åt vänster
+            transform.position += speed * Time.deltaTime * Vector3.left;
+        }
+    }
 
     private void FireMissile()
     {
         int MissFire = Random.Range(0, 30);
         for (int i = 0; i<30; i++)
         {
-            if(i < MissFire - 2 || i > MissFire + 2)
+            if(i < MissFire - 4 || i > MissFire + 4)
             {
                 float y = 13;
                 float x = - 15 + i;
