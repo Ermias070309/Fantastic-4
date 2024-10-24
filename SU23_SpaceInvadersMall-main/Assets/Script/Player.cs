@@ -10,13 +10,20 @@ public class Player : MonoBehaviour
     public Laser laserPrefab;
     Laser laser;
     float speed = 20f;
-    public int maxHealth = 3;
+    public int maxHealth = 4;
     public int currentHealth;
-    float wait = 0; 
+    float wait = 0;
+    SpriteRenderer PG;
+    public Sprite Player1;
+    public Sprite Player2;
+    public Sprite Player3;
+   
 
     private void Start()
     {
         currentHealth = maxHealth;
+        PG = GetComponent<SpriteRenderer>();
+        
     }
 
     public void TakeDamage(int amount)
@@ -53,8 +60,21 @@ public class Player : MonoBehaviour
         {
             position.x += speed * Time.deltaTime;
         }
+        if (currentHealth == 4)
+        {
+            PG.sprite = Player1;
+        }
+        if (currentHealth == 3)
+        {
+            PG.sprite = Player2;
+        }
+        if (currentHealth == 2)
+        {
+            PG.sprite = Player3;
+        }
+        
 
-        transform.position = position;
+            transform.position = position;
 
         if (Input.GetKeyDown(KeyCode.Space) && Time.time - wait >= 1.5)
         {

@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 247719274}
   - component: {fileID: 247719273}
+  - component: {fileID: 247719275}
   m_Layer: 0
   m_Name: bakgrund1
   m_TagString: Untagged
@@ -207,6 +208,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &247719275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247719272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b7d7a40fd71a343a9aa5525ae85531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Back1: {fileID: 21300000, guid: 5fee5f335f6f3cf4f82531e8354ded53, type: 3}
+  Back2: {fileID: 21300000, guid: 077c298d60df1ab419f4f1025bc0f868, type: 3}
+  Back3: {fileID: 21300000, guid: a43d679a08bebcb4780c738b642e4fb5, type: 3}
+  Back4: {fileID: 21300000, guid: 54f67423b39999f44a4a67a1e062d132, type: 3}
 --- !u!1 &501065406
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,8 +1009,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserPrefab: {fileID: 598745509683378831, guid: 98a41f42675e8c844a294a52de7b711f, type: 3}
-  maxHealth: 100
+  maxHealth: 4
   currentHealth: 0
+  Player1: {fileID: 8654685686113384962, guid: 4eca4b73bfc33144eb5d4b9e762182fa, type: 3}
+  Player2: {fileID: -8605838650699461152, guid: 4eca4b73bfc33144eb5d4b9e762182fa, type: 3}
+  Player3: {fileID: -2396749110993414939, guid: 4eca4b73bfc33144eb5d4b9e762182fa, type: 3}
 --- !u!1 &1862395652
 GameObject:
   m_ObjectHideFlags: 0
