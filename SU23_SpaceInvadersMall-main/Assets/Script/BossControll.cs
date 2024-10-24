@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BossControll : MonoBehaviour
 {
 
     [SerializeField] Missile missilePrefab;
-    public int maxHealthBoss = 10;
+    public int maxHealthBoss = 6;
     public int currentHealthBoss;
     [SerializeField] private ParticleSystem damageParticals;
     private ParticleSystem damageParticalsInstance;
@@ -20,7 +21,10 @@ public class BossControll : MonoBehaviour
     public void TakeDamageBoss(int amount)
     {
         currentHealthBoss -= amount;
-
+        if (currentHealthBoss <= 5)
+        {
+            
+        }
         if (currentHealthBoss <= 0)
         {
             SpawnDamgeParticals();
@@ -28,20 +32,34 @@ public class BossControll : MonoBehaviour
         }
     }
 
+    
     // Update is called once per frame
     void Update()
     {
-        
+            if(transform.position.x >= 15)
+            {
+                transform.Translate(Vector3.left * Time.deltaTime); 
+            }
+            if (transform.position.x <= -15)
+            {
+                transform.Translate(Vector3.right * Time.deltaTime);
+            }
     }
+    
 
     private void FireMissile()
     {
+        int MissFire = Random.Range(0, 30);
         for (int i = 0; i<30; i++)
         {
-            float y = transform.position.y;
-            float x = transform.position.x - 15 + i;
-            Instantiate(missilePrefab, new Vector3(x, y), Quaternion.identity); 
-
+            if(i < MissFire - 2 || i > MissFire + 2)
+            {
+                float y = 13;
+                float x = - 15 + i;
+                Instantiate(missilePrefab, new Vector3(x, y), Quaternion.identity);
+            }
+            
+         
         }
     }
     private void SpawnDamgeParticals()

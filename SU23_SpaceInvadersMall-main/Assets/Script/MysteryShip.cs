@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class MysteryShip : MonoBehaviour
 {
-    float speed = 5f;
+    float speed = 10f;
     float cycleTime = 5f;
 
     Vector2 leftDestination;
@@ -55,18 +55,7 @@ public class MysteryShip : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Laser")
-        {
-            var healthComponnent = collision.GetComponent<Player>();
-            if (healthComponnent != null)
-            {
-                healthComponnent.GetHealth(1);
-            }
-            Destroy(gameObject);
-        }
-    }
+    
 
 
     //flyttar den till en plast precis utanför scenen.
