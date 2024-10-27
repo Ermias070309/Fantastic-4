@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 
@@ -30,6 +31,16 @@ public class Laser : Projectile
         {
             Destroy(gameObject);
         }
+        if (collision.tag == "MysteryShip")
+        {
+            Destroy(gameObject);
+
+            var healthComponnent = collision.GetComponent<BossControll>();
+            if (healthComponnent != null)
+            {
+                healthComponnent.TakeDamageBoss(1);
+            }
+        }
     }
 
     void CheckCollision(Collider2D collision)
@@ -37,13 +48,14 @@ public class Laser : Projectile
         Bunker bunker = collision.gameObject.GetComponent<Bunker>();
         Missile missile = collision.gameObject.GetComponent<Missile>();
 
-        if (bunker || missile == null) //Om det inte är en bunker vi träffat så ska skottet försvinna.
+        if ( missile == null) //Om det inte är en bunker vi träffat så ska skottet försvinna.
         {
             
             SpawnDamgeParticals(); //Spawna in particlar 
             Shake.startshake();
             
             Destroy(gameObject);
+            Thread.Sleep(80); 
 
           
 

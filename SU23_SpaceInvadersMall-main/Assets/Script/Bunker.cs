@@ -15,16 +15,18 @@ public class Bunker : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
        
         if (other.gameObject.layer == LayerMask.NameToLayer("Missile") || other.gameObject.layer == LayerMask.NameToLayer("Invader"))
         {
+            
 
             //Ändrar färgen beroende på antal träffar.
             nrOfHits++;
             Color oldColor = spRend.color;
 
-            Debug.Log("red:" + oldColor.r);
-            Debug.Log("green:" + oldColor.g);
+            Debug.Log( oldColor.r);
+            Debug.Log( oldColor.g);
 
             Color newColor = new Color(oldColor.r +(nrOfHits*0.025f), oldColor.g + (nrOfHits * 0.025f), oldColor.b + (nrOfHits * 0.025f));
             

@@ -8,8 +8,8 @@ public class Invaders : MonoBehaviour
 {
     public Invader[] prefab = new Invader[5];
 
-    private int row = 5;
-    private int col = 11;
+    private int row = 1;
+    private int col = 1;
 
     private Vector3 initialPosition;
     private Vector3 direction = Vector3.right;
@@ -100,6 +100,7 @@ public class Invaders : MonoBehaviour
                 nr++;
         }
         return nr;
+        
     }
 
     //Flyttar invaders åt sidan

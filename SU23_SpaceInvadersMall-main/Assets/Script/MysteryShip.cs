@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class MysteryShip : MonoBehaviour
 {
-    float speed = 5f;
+    float speed = 10f;
     float cycleTime = 5f;
 
     Vector2 leftDestination;
@@ -55,8 +55,9 @@ public class MysteryShip : MonoBehaviour
             }
         }
     }
+    
 
-  
+
     //flyttar den till en plast precis utanför scenen.
     void SetInvisible()
     {
@@ -81,12 +82,6 @@ public class MysteryShip : MonoBehaviour
         isVisible = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Laser"))
-        {
-            SetInvisible();
-            GameManager.Instance.OnMysteryShipKilled(this);
-        }
-    }
+    
+    
 }
