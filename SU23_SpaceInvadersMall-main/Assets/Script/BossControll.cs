@@ -24,19 +24,20 @@ public class BossControll : MonoBehaviour
     public void TakeDamageBoss(int amount)
     {
         currentHealthBoss -= amount;
-        
         if (currentHealthBoss <= 0)
         {
             SpawnDamgeParticals();
             Destroy(gameObject);
+            Debug.Log("Du van!! Tryck y för att spela igen eller n för att avsluta");
         }
+
     }
 
     
     // Update is called once per frame
     void Update()
     {
-        if(currentHealthBoss <= 5)
+        if(currentHealthBoss <= 3)
         {
             moveShip();
         }
@@ -47,6 +48,16 @@ public class BossControll : MonoBehaviour
         if (transform.position.x >= 15)
         {
             direction *= -1; //Ändrar riktningen
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            currentHealthBoss = 0;
+             
+        }
+        if (currentHealthBoss <= 0)
+        {
+            Destroy(gameObject); 
         }
     }
 

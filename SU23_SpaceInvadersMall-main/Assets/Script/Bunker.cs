@@ -25,8 +25,8 @@ public class Bunker : MonoBehaviour
             nrOfHits++;
             Color oldColor = spRend.color;
 
-            Debug.Log( oldColor.r);
-            Debug.Log( oldColor.g);
+            
+            
 
             Color newColor = new Color(oldColor.r +(nrOfHits*0.025f), oldColor.g + (nrOfHits * 0.025f), oldColor.b + (nrOfHits * 0.025f));
             

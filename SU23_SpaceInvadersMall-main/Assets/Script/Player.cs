@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 
@@ -7,6 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Player : MonoBehaviour
 {
+    GameManager GM;
     public Laser laserPrefab;
     Laser laser;
     float speed = 20f;
@@ -17,6 +19,8 @@ public class Player : MonoBehaviour
     public Sprite Player1;
     public Sprite Player2;
     public Sprite Player3;
+    public Sprite Player4;
+   
    
 
     private void Start()
@@ -29,21 +33,15 @@ public class Player : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
-        }
-    }
-    public void GetHealth(int amount)
-    {
-        currentHealth = amount;
+            transform.position = new Vector3(100, -40, 0);
+            Debug.Log("Du förlora. Tryck y för att spela igen eller n för att avsluta");
 
-        if (currentHealth > 0)
-        {
-            Destroy(gameObject);
         }
+
     }
+    
 
 
 
@@ -72,6 +70,10 @@ public class Player : MonoBehaviour
         {
             PG.sprite = Player3;
         }
+        if (currentHealth == 1)
+        {
+            PG.sprite = Player4; 
+        }
         
 
             transform.position = position;
@@ -81,6 +83,14 @@ public class Player : MonoBehaviour
             laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
             wait = Time.time; 
         }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            currentHealth = maxHealth;
+            transform.position = new Vector3(0, -13.77f, 0);
+        }
+       
+
+
     }
 
     

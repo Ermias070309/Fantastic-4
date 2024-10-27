@@ -8,8 +8,8 @@ public class Invaders : MonoBehaviour
 {
     public Invader[] prefab = new Invader[5];
 
-    private int row = 1;
-    private int col = 1;
+    private int row = 2;
+    private int col = 6;
 
     private Vector3 initialPosition;
     private Vector3 direction = Vector3.right;
@@ -37,14 +37,14 @@ public class Invaders : MonoBehaviour
 
             //för att centerar invaders
             Vector2 centerOffset = new Vector2(-width * 0.5f, -height * 0.5f);
-            Vector3 rowPosition = new Vector3(centerOffset.x, (2f * r) + centerOffset.y, 0f);
+            Vector3 rowPosition = new Vector3(centerOffset.x, (3f * r) + centerOffset.y, 0f);
             
             for (int c = 0; c < col; c++)
             {
                 Invader tempInvader = Instantiate(prefab[r], transform);
 
                 Vector3 position = rowPosition;
-                position.x += 2f * c;
+                position.x += 4f * c;
                 tempInvader.transform.localPosition = position;
             }
         }

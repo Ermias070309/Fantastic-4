@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private Bunker[] bunkers;
     [SerializeField]
     private GameObject boss;
+    public BossControll BC; 
     
 
     //Används ej just nu, men ni kan använda de senare
@@ -56,6 +57,14 @@ public class GameManager : MonoBehaviour
         {
             NewGame();
         }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            NewRound();
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            Application.Quit();
+        }
     }
 
     private void NewGame()
@@ -66,7 +75,7 @@ public class GameManager : MonoBehaviour
         NewRound();
     }
 
-    private void NewRound()
+    public void NewRound()
     {
         invaders.ResetInvaders();
         invaders.gameObject.SetActive(true);
@@ -77,6 +86,7 @@ public class GameManager : MonoBehaviour
         }
 
         Respawn();
+
     }
 
     private void Respawn()
@@ -126,6 +136,7 @@ public class GameManager : MonoBehaviour
     public void OnMysteryShipKilled(MysteryShip mysteryShip)
     {
         mysteryShip.gameObject.SetActive(false);
+       
     }
 
     public void OnBoundaryReached()
