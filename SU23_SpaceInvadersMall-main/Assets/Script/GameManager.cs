@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
         if (invaders.GetInvaderCount() == 0)
         {
             // NewRound(); 
-            Instantiate(boss, new Vector3(0, 13, 0), Quaternion.identity); 
+            Instantiate(boss, new Vector3(0, 8, 0), Quaternion.identity); 
            
         }
     }

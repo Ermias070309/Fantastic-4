@@ -11,12 +11,16 @@ public class BossControll : MonoBehaviour
     public int maxHealthBoss = 6;
     public int currentHealthBoss;
     int direction = -1;
-    
-    [SerializeField] private ParticleSystem damageParticals;
+  [SerializeField] private ParticleSystem damageParticals;
     private ParticleSystem damageParticalsInstance;
+    public Sprite boss1;
+    public Sprite boss2;
+    SpriteRenderer BS;
+
     // Start is called before the first frame update
     void Start()
     {
+        BS = GetComponent<SpriteRenderer>();
         currentHealthBoss = maxHealthBoss;
         InvokeRepeating(nameof(FireMissile), 1f, 2.6f); 
     }
@@ -24,6 +28,13 @@ public class BossControll : MonoBehaviour
     public void TakeDamageBoss(int amount)
     {
         currentHealthBoss -= amount;
+        if (currentHealthBoss == 3)
+        {
+            transform.position = new Vector3(0, 5, 0);
+            BoxCollider2D BC = GetComponent<BoxCollider2D>();
+            BC.size = new Vector2(3.628833f, 3.073158f);
+            BC.offset = new Vector2(-0.1226101f, 3.453106f);
+        }
         if (currentHealthBoss <= 0)
         {
             SpawnDamgeParticals();
@@ -37,8 +48,14 @@ public class BossControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(currentHealthBoss <= 6 && currentHealthBoss !<= 3)
+        {
+            BS.sprite = boss1; 
+        }
         if(currentHealthBoss <= 3)
         {
+            transform.localScale = new Vector3(2, 2, 2);
+            BS.sprite = boss2; 
             moveShip();
         }
         if (transform.position.x <= -15)
