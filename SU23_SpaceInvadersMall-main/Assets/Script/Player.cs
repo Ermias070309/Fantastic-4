@@ -20,8 +20,8 @@ public class Player : MonoBehaviour
     public Sprite Player2;
     public Sprite Player3;
     public Sprite Player4;
-    public AudioClip backgroundMusic;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
+    
 
 
 
@@ -29,10 +29,7 @@ public class Player : MonoBehaviour
     {
         currentHealth = maxHealth;
         PG = GetComponent<SpriteRenderer>();
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = backgroundMusic;
-        audioSource.loop = true;
-        audioSource.Play();
+        
     }
 
     public void TakeDamage(int amount)
@@ -86,8 +83,18 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && Time.time - wait >= 1.5)
         {
             laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
-            wait = Time.time; 
+            wait = Time.time;
+            
+            
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            audioSource.Play(); 
+        }
+
+
+
+
         if (Input.GetKeyDown(KeyCode.Y))
         {
             currentHealth = maxHealth;

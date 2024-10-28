@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviour
     private Bunker[] bunkers;
     [SerializeField]
     private GameObject boss;
-    public BossControll BC; 
-    
+    public BossControll BC;
+    public AudioClip backgroundMusic;
+    private AudioSource audioSource;
+
 
     //Används ej just nu, men ni kan använda de senare
     public int score { get; private set; } = 0;
@@ -47,7 +49,10 @@ public class GameManager : MonoBehaviour
         invaders = FindObjectOfType<Invaders>();
         mysteryShip = FindObjectOfType<MysteryShip>();
         bunkers = FindObjectsOfType<Bunker>();
-         
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = backgroundMusic;
+        audioSource.loop = true;
+        audioSource.Play();
 
         NewGame();
     }
