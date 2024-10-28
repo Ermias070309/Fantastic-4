@@ -20,14 +20,19 @@ public class Player : MonoBehaviour
     public Sprite Player2;
     public Sprite Player3;
     public Sprite Player4;
-   
-   
+    public AudioClip backgroundMusic;
+    private AudioSource audioSource;
+
+
 
     private void Start()
     {
         currentHealth = maxHealth;
         PG = GetComponent<SpriteRenderer>();
-        
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = backgroundMusic;
+        audioSource.loop = true;
+        audioSource.Play();
     }
 
     public void TakeDamage(int amount)
