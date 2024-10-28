@@ -149,3 +149,16 @@ MonoBehaviour:
   damageParticals: {fileID: 4167568358288970750, guid: 797fbd2051b837548b3d34506d41b35c, type: 3}
   boss1: {fileID: 5344946282142963407, guid: 37adcf696288ec943b0a8f01c366a50a, type: 3}
   boss2: {fileID: -2159122180392875290, guid: 6624ab5cf169547408ec343e2352dad2, type: 3}
+  animationSprites:
+  - {fileID: -6993845667199865166, guid: 37adcf696288ec943b0a8f01c366a50a, type: 3}
+  - {fileID: -1956373971629130791, guid: 37adcf696288ec943b0a8f01c366a50a, type: 3}
+  - {fileID: -246160256824283373, guid: 37adcf696288ec943b0a8f01c366a50a, type: 3}
+  - {fileID: 8227733869137391355, guid: 37adcf696288ec943b0a8f01c366a50a, type: 3}
+  - {fileID: 4144258677892741171, guid: 37adcf696288ec943b0a8f01c366a50a, type: 3}
+  - {fileID: -6005366568622801978, guid: 37adcf696288ec943b0a8f01c366a50a, type: 3}
+  - {fileID: 6900098290685542163, guid: 37adcf696288ec943b0a8f01c366a50a, type: 3}
+  - {fileID: 6488305490264626421, guid: 37adcf696288ec943b0a8f01c366a50a, type: 3}
+  - {fileID: 4726382096459468006, guid: 37adcf696288ec943b0a8f01c366a50a, type: 3}
+  - {fileID: 8564206548083488208, guid: 37adcf696288ec943b0a8f01c366a50a, type: 3}
+  - {fileID: 0}
+  animationTime: 1

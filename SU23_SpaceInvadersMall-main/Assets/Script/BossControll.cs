@@ -16,6 +16,7 @@ public class BossControll : MonoBehaviour
     public Sprite boss1;
     public Sprite boss2;
     SpriteRenderer BS;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -109,6 +110,9 @@ public class BossControll : MonoBehaviour
     }
     private void SpawnDamgeParticals()
     {
-        damageParticalsInstance = Instantiate(damageParticals, transform.position, Quaternion.identity);
+        Vector3 newPosition = transform.position;
+        newPosition.y = 9;
+        
+        damageParticalsInstance = Instantiate(damageParticals, newPosition, Quaternion.identity);
     }
 }
