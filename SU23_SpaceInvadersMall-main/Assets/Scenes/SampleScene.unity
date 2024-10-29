@@ -633,6 +633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab:
   - {fileID: 4956728997434895223, guid: aacc82b1d1e5f304ab5aedaedc4b6e91, type: 3}
+  - {fileID: 4956728997434895223, guid: aacc82b1d1e5f304ab5aedaedc4b6e91, type: 3}
   missilePrefab: {fileID: 375123409089435558, guid: 18ca01e8917cd6b4b9a78f80ad42859e, type: 3}
 --- !u!4 &918047703
 Transform:
@@ -709,7 +710,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.23
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1116,6 +1117,8 @@ MonoBehaviour:
   Player3: {fileID: -2396749110993414939, guid: 4eca4b73bfc33144eb5d4b9e762182fa, type: 3}
   Player4: {fileID: 0}
   audioSource: {fileID: 1816294025}
+  shoot: {fileID: 8300000, guid: 1ce0602caa2a79a4eaece1d77a58b8da, type: 3}
+  die: {fileID: 8300000, guid: d5ed82c3ff3c1724a8427cf15a45f82d, type: 3}
 --- !u!82 &1816294025
 AudioSource:
   m_ObjectHideFlags: 0

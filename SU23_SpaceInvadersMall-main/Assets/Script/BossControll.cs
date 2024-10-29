@@ -16,6 +16,10 @@ public class BossControll : MonoBehaviour
     public Sprite boss1;
     public Sprite boss2;
     SpriteRenderer BS;
+    public AudioSource audioSource;
+    public AudioSource face1; 
+    public AudioClip face2;
+    public AudioClip bossdeath; 
    
 
     // Start is called before the first frame update
@@ -35,17 +39,27 @@ public class BossControll : MonoBehaviour
             BoxCollider2D BC = GetComponent<BoxCollider2D>();
             BC.size = new Vector2(3.628833f, 3.073158f);
             BC.offset = new Vector2(-0.1226101f, 3.453106f);
+            audioSource.clip = face2;
+            audioSource.Play();
         }
         if (currentHealthBoss <= 0)
         {
             SpawnDamgeParticals();
-            Destroy(gameObject);
+
+            // Skapar en temporär AudioSource för bossdeath-ljudet
+            AudioSource tempAudioSource = new GameObject("TempAudio").AddComponent<AudioSource>();
+            tempAudioSource.clip = bossdeath;
+            tempAudioSource.Play();
+
+            // Förstör den temporära ljudkällan efter att ljudet har spelats klart
+            Destroy(tempAudioSource.gameObject, bossdeath.length);
+
+            Destroy(gameObject); // Förstör bossens GameObject
             Debug.Log("Du van!! Tryck y för att spela igen eller n för att avsluta");
         }
-
     }
 
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -111,7 +125,7 @@ public class BossControll : MonoBehaviour
     private void SpawnDamgeParticals()
     {
         Vector3 newPosition = transform.position;
-        newPosition.y = 9;
+        newPosition.y = 11;
         
         damageParticalsInstance = Instantiate(damageParticals, newPosition, Quaternion.identity);
     }

@@ -10,8 +10,10 @@ using UnityEngine;
 
 public class Invader : MonoBehaviour
 {
+    
     public Sprite[] animationSprites = new Sprite[2];
     public float animationTime;
+    
 
     SpriteRenderer spRend;
     int animationFrame;
@@ -44,6 +46,7 @@ public class Invader : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Laser"))
         {
+            
             GameManager.Instance.OnInvaderKilled(this);
         }
         else if(collision.gameObject.layer == LayerMask.NameToLayer("Boundary")) //nått nedre kanten
@@ -51,5 +54,6 @@ public class Invader : MonoBehaviour
             GameManager.Instance.OnBoundaryReached();
         }
     }
+    
 
 }

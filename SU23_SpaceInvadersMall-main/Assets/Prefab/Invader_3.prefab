@@ -49,6 +49,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3032509507825182586, guid: 76202e31c459f5647999bf41eaf41c1a, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d1fd0dbdf2934f043a56568046816337, type: 3}
+    - target: {fileID: 3032509507825182586, guid: 76202e31c459f5647999bf41eaf41c1a, type: 3}
       propertyPath: animationSprites.Array.data[0]
       value: 
       objectReference: {fileID: 21300000, guid: eaed4357054422849a7d8c30e23d978e, type: 3}

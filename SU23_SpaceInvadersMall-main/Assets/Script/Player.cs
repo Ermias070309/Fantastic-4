@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     public Sprite Player3;
     public Sprite Player4;
     public AudioSource audioSource;
+    public AudioClip shoot;
+    public AudioClip die; 
     
 
 
@@ -38,6 +40,9 @@ public class Player : MonoBehaviour
         if (currentHealth <= 0)
         {
             transform.position = new Vector3(100, -40, 0);
+            audioSource.clip = die;
+            audioSource.volume = 0.05f; 
+            audioSource.Play(); 
             Debug.Log("Du förlora. Tryck y för att spela igen eller n för att avsluta");
 
         }
@@ -89,6 +94,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            audioSource.clip = shoot;
             audioSource.Play(); 
         }
 
@@ -99,6 +105,7 @@ public class Player : MonoBehaviour
         {
             currentHealth = maxHealth;
             transform.position = new Vector3(0, -13.77f, 0);
+            audioSource.Pause();
         }
        
 

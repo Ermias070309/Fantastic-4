@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 public class Laser : Projectile
@@ -12,10 +11,23 @@ public class Laser : Projectile
 
     [SerializeField] private ParticleSystem damageParticals;
     private ParticleSystem damageParticalsInstance;
+    public AudioSource audioSource;
+    public AudioClip impactSound; // Ljudklipp för kollision
+    [SerializeField] private float impactVolume = 1.5f; // Volymen för ljudet, justerbar från Inspector
+
     private void Awake()
     {
         direction = Vector3.up;
-        Shake = FindAnyObjectByType<ScreenShake>(); 
+        Shake = FindAnyObjectByType<ScreenShake>();
+    }
+
+    private void Start()
+    {
+        // Initiera ljudkällan om det behövs
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     void Update()
@@ -35,10 +47,10 @@ public class Laser : Projectile
         {
             Destroy(gameObject);
 
-            var healthComponnent = collision.GetComponent<BossControll>();
-            if (healthComponnent != null)
+            var healthComponent = collision.GetComponent<BossControll>();
+            if (healthComponent != null)
             {
-                healthComponnent.TakeDamageBoss(1);
+                healthComponent.TakeDamageBoss(1);
             }
         }
     }
@@ -48,25 +60,24 @@ public class Laser : Projectile
         Bunker bunker = collision.gameObject.GetComponent<Bunker>();
         Missile missile = collision.gameObject.GetComponent<Missile>();
 
-        if ( missile == null) //Om det inte är en bunker vi träffat så ska skottet försvinna.
+        if (missile == null) // Om det inte är en bunker vi träffat så ska skottet försvinna.
         {
-            
-            SpawnDamgeParticals(); //Spawna in particlar 
+            SpawnDamageParticles(); // Spawna in partiklar
             Shake.startshake();
-            
+
+            // Spela upp ljudet oberoende av objektet med justerbar volym
+            AudioSource.PlayClipAtPoint(impactSound, transform.position, impactVolume);
+
             Destroy(gameObject);
-            Thread.Sleep(80); 
-
-          
-
         }
+
         if (collision.tag == "Missile")
         {
             Destroy(collision.gameObject);
         }
-
     }
-    private void SpawnDamgeParticals()
+
+    private void SpawnDamageParticles()
     {
         damageParticalsInstance = Instantiate(damageParticals, transform.position, Quaternion.identity);
     }

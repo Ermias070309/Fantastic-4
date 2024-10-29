@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a7a4c63574f12f40a99907bd286ed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSound: {fileID: 8300000, guid: d1fd0dbdf2934f043a56568046816337, type: 3}
   animationSprites:
   - {fileID: 0}
   - {fileID: 0}
